@@ -75,10 +75,24 @@
     background-color: $white-smoke;
   }
   &__timer-item {
-    padding: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 40px;
     margin-right: 20px;
     border: 1px solid $ancestral-water;
     background-color: $white;
+  }
+  &__timer-item:not(:last-child)::after {
+    content: ":";
+    position: absolute;
+    top: 9px;
+    right: -13px;
+    z-index: 1;
+    @include text(16px, 100%, 700, $off-black);
   }
   &__timer-item:last-child {
     margin-right: 0;
@@ -281,10 +295,10 @@
   }
 }
 
-
 @media (max-width: 768px) {
   .product-day {
-    &__left, &__right {
+    &__left,
+    &__right {
       grid-column: span 12;
     }
     &__options {

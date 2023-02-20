@@ -288,6 +288,7 @@ input::placeholder {
     background-color: transparent;
     border: none;
     @include text(14px, 100%, 400, $off-black);
+    @include transition(opacity, 0.3s, ease-in-out);
     cursor: pointer;
   }
   &__button::before {
@@ -414,6 +415,11 @@ input[type="number"] {
       transform: translateX(-5px);
     }
   }
+  .dropdown {
+    &__button:hover {
+      opacity: 0.5;
+    }
+  }
 }
 
 //active, focus
@@ -432,6 +438,16 @@ input[type="number"] {
   }
 }
 
+.dropdown {
+  &__button:active {
+    opacity: 0.5;
+  }
+  &__button:focus {
+    opacity: 0.5;
+    outline: none;
+  }
+}
+
 // import swiper
 @import "../../node_modules/swiper/swiper.scss";
 @import "../../node_modules/swiper/modules/pagination/pagination.scss";
@@ -443,7 +459,6 @@ input[type="number"] {
 //tooltip
 @import "../../node_modules/tippy.js/dist/tippy";
 @import "../../node_modules/tippy.js/themes/light";
-
 
 @media (max-width: 500px) {
   .section__title {

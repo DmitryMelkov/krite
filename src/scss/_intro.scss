@@ -36,6 +36,7 @@
     text-transform: uppercase;
     @include text(14px, 100%, 400, $white);
     background-color: $off-black;
+    @include transition(background-color, 0.3s, ease-in-out);
   }
   &__slide-right-img {
     margin-bottom: 5px;
@@ -75,6 +76,26 @@
   background-color: $off-black;
 }
 
+//hover
+@media (min-width: 1024px) {
+  .intro {
+    &__slide-btn:hover {
+      background-color: $fiftieth-shade-of-grey;
+    }
+  }
+}
+
+//active, focus
+.intro {
+  &__slide-btn:active {
+    background-color: $black;
+  }
+  &__slide-btn:focus {
+    background-color: $black;
+    outline: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .intro {
     &__swiper-slide {
@@ -91,7 +112,6 @@
     }
   }
 }
-
 
 @media (max-width: 550px) {
   .intro {

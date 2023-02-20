@@ -1,0 +1,281 @@
+@import "_variables";
+@import "_mixins";
+
+.sale {
+  &__title {
+    margin-bottom: 28px;
+  }
+  &__tabs-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+  }
+  &__tabs-nav-inner {
+    display: grid;
+    grid-template-columns: repeat(8, 2fr);
+    gap: 8px;
+  }
+  &__tabs-btn {
+    grid-column: span 2;
+    padding: 13px 30px;
+    @include text(14px, 100%, 400, $off-black);
+    border-radius: 21px;
+    background-color: $snowflake;
+    @include transition((color, background-color), 0.3s, ease-in-out);
+  }
+  &__tabs-btn.active {
+    @include text(14px, 100%, 400, $white);
+    background-color: $off-black;
+    cursor: not-allowed;
+  }
+  &__tabs-item {
+    display: none;
+  }
+  &__tabs-item.active {
+    display: block;
+  }
+  &__item-box {
+    position: relative;
+    padding: 16px 24px;
+    border: 1px solid $snowflake;
+  }
+  &__tabs-eye-btn {
+    position: absolute;
+    top: 48px;
+    right: 25px;
+    z-index: 2;
+  }
+  &__tabs-sale {
+    margin-right: 4px;
+  }
+  &__tabs-like {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__tabs-like-btn {
+    @include transition(color, 0.3s, ease-in-out);
+  }
+  &__tabs-like-svg {
+    @include svg-icon(24px, 24px, $unique-grey);
+    @include transition(color, 0.3s, ease-in-out);
+  }
+  &__tabs-eye-svg {
+    @include svg-icon(24px, 24px, $unique-grey);
+    @include transition(color, 0.3s, ease-in-out);
+  }
+  &__swiper {
+    margin-bottom: 17px;
+  }
+  &__swiper-slide {
+    text-align: center;
+  }
+  &__sale {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  &__price {
+    margin-right: 8px;
+  }
+  &__descr {
+    @include text(14px, 22.4px, 400, $off-black);
+  }
+
+  &__btn-next,
+  &__btn-prev {
+    width: 54px;
+    height: 54px;
+    border: 1px solid $off-black;
+    border-radius: 50%;
+  }
+  &__allowance {
+    margin-top: 124px;
+    display: grid;
+    grid-template-columns: repeat(12, 4fr);
+    gap: 20px;
+  }
+  &__allowance-item {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    background-color: $navBg;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+  }
+  &__allowance-item-1 {
+    background-image: url("../img/sale-discount-1.png");
+  }
+  &__allowance-item-2 {
+    background-image: url("../img/sale-discount-2.png");
+  }
+  &__allowance-item-3 {
+    background-image: url("../img/sale-discount-3.png");
+  }
+  &__allowance-item-1 &__allowance-box {
+    background-color: $tort;
+  }
+  &__allowance-item-2 &__allowance-box {
+    background-color: $sour-cherry;
+  }
+  &__allowance-item-3 &__allowance-box {
+    background-color: $india-trade;
+  }
+  &__allowance-span {
+    padding-left: 26px;
+    padding-top: 72px;
+    margin-bottom: 19px;
+    text-transform: uppercase;
+    @include text(20px, 32px, 600, $off-black);
+  }
+  &__allowance-box {
+    margin-bottom: 45px;
+    max-width: 194px;
+    display: flex;
+    align-items: center;
+  }
+  &__allowance-before {
+    padding-left: 26px;
+    margin-right: 13px;
+    @include text(24px, 38.4px, 600, $white);
+  }
+  &__allowance-percent {
+    @include text(36px, 57.6px, 600, $white);
+  }
+}
+
+.tabs {
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__btn-prev {
+    position: static;
+    margin-right: 8px;
+  }
+  &__btn-next {
+    position: static;
+  }
+}
+
+.sale__swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+  border: 1px solid $off-black;
+  opacity: 1;
+}
+
+.sale__swiper .swiper-pagination-bullet-active {
+  width: 8px;
+  height: 8px;
+  background-color: $off-black;
+}
+
+//hover
+@media (min-width: 1024px) {
+  .sale {
+    &__tabs-btn:hover {
+      background-color: $white-smoke;
+    }
+    &__tabs-like-btn:hover &__tabs-like-svg,
+    &__tabs-eye-btn:hover &__tabs-eye-svg {
+      color: $spanish-grey;
+    }
+  }
+  .tabs {
+    &__btn-next:hover &__next-svg {
+      transform: translateX(5px);
+    }
+    &__btn-prev:hover &__prev-svg {
+      transform: translateX(-5px);
+    }
+  }
+}
+
+//active, focus
+.sale {
+  &__tabs-btn:active {
+    background-color: $off-black;
+    color: $white;
+  }
+  &__tabs-btn:focus {
+    background-color: $off-black;
+    color: $white;
+    outline: none;
+  }
+  &__tabs-like-btn:active &__tabs-like-svg {
+    color: $sour-cherry;
+  }
+  &__tabs-like-btn:focus &__tabs-like-svg {
+    color: $sour-cherry;
+    outline: none;
+  }
+  &__tabs-eye-btn:active &__tabs-eye-svg {
+    color: $spanish-grey;
+  }
+  &__tabs-eye-btn:focus &__tabs-eye-svg {
+    color: $spanish-grey;
+    outline: none;
+  }
+}
+
+.tabs {
+  &__btn-next:active &__next-svg {
+    transform: translateX(5px);
+  }
+  &__btn-prev:active &__prev-svg {
+    transform: translateX(-5px);
+  }
+  &__btn-next:focus &__next-svg {
+    transform: translateX(5px);
+    outline: none;
+  }
+  &__btn-prev:focus &__prev-svg {
+    transform: translateX(-5px);
+    outline: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sale {
+    &__allowance-item {
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sale {
+    &__tabs-nav-inner {
+      grid-template-columns: repeat(12, 4fr);
+      margin-right: 20px;
+    }
+    &__tabs-btn {
+      grid-column: span 4;
+    }
+    &__allowance-item {
+      grid-column: span 6;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .sale {
+    &__tabs-btn {
+      padding: 10px 10px;
+    }
+    &__tabs-nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__tabs-nav-inner {
+      margin-bottom: 40px;
+    }
+    &__allowance-item {
+      grid-column: span 12;
+    }
+  }
+}

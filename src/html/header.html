@@ -1,0 +1,101 @@
+<header class="header">
+  <div class="container header__container">
+    <div class="header__top">
+      <div class="header__addres">
+        <div class="header__city">
+          <div class="dropdown">
+            <button class="dropdown__button">Санкт-Петербург</button>
+            <ul class="dropdown__list">
+                <li class="dropdown__list-item" data-value="travel">Санкт-Петербург</li>
+                <li class="dropdown__list-item" data-value="lessons">Москва</li>
+                <li class="dropdown__list-item" data-value="photo">Нижний Новгород</li>
+                <li class="dropdown__list-item" data-value="sport">Ростов-на-Дону</li>
+            </ul>
+            <input type="text" name="select-category" value="" class="dropdown__input-hidden" >
+        </div>
+
+        </div>
+        <a href="tel: +7 800 785-25-35" class="header__phone">
+          8 800 785-25-35
+        </a>
+      </div>
+      <div class="header__logo">
+        <img class="header__logo-img" src="@img/logo.png" alt="logo-img">
+      </div>
+      <div class="header__login">
+        <div class="header__login-inner">
+          <button class="header__login-btn btn-reset">Вход</button>
+          <button class="header__login-btn btn-reset">Регистрация</button>
+        </div>
+        <div class="header__login-icon">
+          <button class="header__icon-btn btn-reset">
+            <svg class="header__icon-svg">
+              <use xlink:href="img/icons/icons.svg#favorite"></use>
+            </svg>
+            <span class="header__icon-btn-click">23</span>
+          </button>
+          <button class="header__icon-btn btn-reset">
+            <svg class="header__icon-svg">
+              <use xlink:href="img/icons/icons.svg#chart"></use>
+            </svg>
+          </button>
+          <button class="header__icon-btn btn-reset">
+            <svg class="header__icon-svg">
+              <use xlink:href="img/icons/icons.svg#bag"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="header__bottom">
+     <div class="header__burger">
+      <button class="header__burger-btn header__burger-btn-open btn-reset">
+        <svg class="header__burger-open-svg">
+          <use xlink:href="img/icons/icons.svg#burger-open"></use>
+        </svg>
+      </button>
+      <button class="header__burger-btn header__burger-btn-close btn-reset">
+        <svg class="header__burger-close-svg">
+          <use xlink:href="img/icons/icons.svg#burger-close"></use>
+        </svg>
+      </button>
+     </div>
+      <nav class="header__nav">
+        <ul class="header__list">
+          <li class="header__item">
+            <a href="#" class="header__link">Каталог</a>
+          </li>
+          <li class="header__item">
+            <a href="#" class="header__link">Акции</a>
+          </li>
+          <li class="header__item">
+            <a href="#" class="header__link">Бренды</a>
+          </li>
+          <li class="header__item">
+            <a href="#" class="header__link">Магазины</a>
+          </li>
+          <li class="header__item">
+            <a href="#" class="header__link">О нас</a>
+          </li>
+          <li class="header__item">
+            <a href="#" class="header__link">Доставка и оплата</a>
+          </li>
+          <li class="header__item">
+            <a href="#" class="header__link">Статьи</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__search">
+        <button class="header__search-btn btn-reset">
+          <svg class="header__search-svg">
+            <use xlink:href="img/icons/icons.svg#search"></use>
+          </svg>
+        </button>
+        <input class="header__search-input" type="text" id="search-input" placeholder="Поиск по сайту">
+        <label class="header__search-label" for="search-input"></label>
+      </div>
+    </div>
+  </div>
+
+
+</header>

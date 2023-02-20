@@ -1,0 +1,294 @@
+@import "_variables";
+@import "_mixins";
+
+.product-day {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 42px;
+  }
+  &__swiper-slide {
+    display: grid;
+    grid-template-columns: repeat(12, 6fr);
+    gap: 20px;
+  }
+  &__left {
+    position: relative;
+    grid-column: span 6;
+  }
+
+  &__mark {
+    position: absolute;
+    top: 17px;
+    left: 14px;
+    z-index: 11;
+    display: flex;
+  }
+  &__mark-text {
+    margin-right: 4px;
+  }
+  &__btn-next,
+  &__btn-prev {
+    width: 54px;
+    height: 54px;
+    border: 1px solid $off-black;
+    border-radius: 50%;
+  }
+  &__img-next-svg,
+  &__img-prev-svg {
+    @include svg-icon(16px, 16px, $off-black);
+  }
+  &__right {
+    grid-column: span 6;
+  }
+  &__raiting {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  &__raiting-value {
+    margin-left: 10px;
+    @include text(14px, 100%, 400, $off-black);
+  }
+  &__right-title {
+    margin-bottom: 20px;
+    @include text(32px, 100%, 400, $off-black);
+  }
+  &__articul {
+    display: block;
+    margin-bottom: 5px;
+    @include text(14px, 100%, 400, $silver-snippet);
+  }
+  &__timer {
+    padding-bottom: 14px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $snowflake;
+  }
+  &__timer-content {
+    margin-left: 36px;
+    padding: 12px 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $white-smoke;
+  }
+  &__timer-item {
+    padding: 5px;
+    margin-right: 20px;
+    border: 1px solid $ancestral-water;
+    background-color: $white;
+  }
+  &__timer-item:last-child {
+    margin-right: 0;
+  }
+  &__timer-val {
+    text-align: center;
+    @include text(16px, 100%, 700, $off-black);
+  }
+  &__timer-text {
+    @include text(11px, 100%, 400, $off-black);
+  }
+  &__price,
+  &__discount {
+    margin-right: 16px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  &__options {
+    display: flex;
+  }
+  &__form {
+    margin-top: 25px;
+  }
+  &__size-header {
+    display: flex;
+    align-items: center;
+  }
+  &__size-title,
+  &__color-title {
+    margin-right: 10px;
+    text-transform: uppercase;
+    @include text(12px, 100%, 600, $off-black);
+  }
+  &__size-title-svg {
+    @include svg-icon(18px, 18px, $snowflake);
+    cursor: pointer;
+    @include transition(color, 0.3s, ease-in-out);
+  }
+  &__size-inner {
+    margin-top: 14px;
+    display: flex;
+  }
+  &__size-item {
+    margin-right: 8px;
+  }
+  &__size-input {
+    display: none;
+  }
+  &__size-label {
+    position: relative;
+    text-align: center;
+    padding-top: 9px;
+    width: 50px;
+    height: 32px;
+    @include text(14px, 100%, 400, $off-black);
+    border: 1px solid $off-black;
+    cursor: pointer;
+  }
+  &__size-label.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  &__size-label::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: $off-black;
+    transform: scale(0);
+    transition: all 0.3s ease-in-out;
+  }
+  &__size-input:checked + &__size-label::after {
+    transform: scale(1);
+  }
+  &__size-input:checked + &__size-label {
+    color: $white;
+  }
+  &__buy {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__buy-btns,
+  &__buy-icons {
+    display: flex;
+    flex-direction: column;
+  }
+  &__buy-btns {
+    width: 62.5%;
+  }
+  &__buy-btn {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    width: 100%;
+    min-width: 200px;
+    height: 56px;
+    @include text(14px, 100%, 500, $off-black);
+    background-color: transparent;
+    border: 1px solid $off-black;
+    @include transition((color, background-color), 0.3s, ease-in-out);
+  }
+  &__buy-btn.dark {
+    @include text(14px, 100%, 500, $white);
+    background-color: $off-black;
+  }
+  &__buy-icons {
+    margin-left: 39px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__buy-icon {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    @include text(14px, 100%, 300, $off-black);
+    @include transition(color, 0.3s, ease-in-out);
+  }
+  &__buy-icon-svg {
+    margin-right: 8px;
+    @include svg-icon(24px, 24px, $unique-grey);
+    @include transition(color, 0.3s, ease-in-out);
+  }
+}
+
+.product-day__swiper-img .swiper-button-next {
+  right: 20px;
+}
+
+//hover
+@media (min-width: 1024px) {
+  .product-day {
+    &__size-title-svg:hover {
+      color: $pinball;
+    }
+    &__buy-btn.dark:hover {
+      background-color: $fiftieth-shade-of-grey;
+    }
+    &__buy-btn:hover {
+      background-color: $off-black;
+      color: $white;
+    }
+    &__buy-icon:hover {
+      color: $spanish-grey;
+    }
+    &__buy-icon:hover &__buy-icon-svg {
+      color: $spanish-grey;
+    }
+  }
+}
+
+//active, focus
+.product-day {
+  &__size-title-svg:active {
+    color: $pinball;
+  }
+  &__size-title-svg:focus {
+    color: $pinball;
+  }
+  &__buy-btn.dark:active,
+  &__buy-btn:active {
+    background-color: $black;
+    color: $white;
+  }
+  &__buy-btn.dark:focus,
+  &__buy-btn:focus {
+    background-color: $black;
+    color: $white;
+    outline: none;
+  }
+  &__buy-icon:active {
+    color: $off-black;
+  }
+  &__buy-icon:focus {
+    color: $off-black;
+    outline: none;
+  }
+  &__buy-icon:active &__buy-icon-svg {
+    color: $sour-cherry;
+  }
+  &__buy-icon:focus &__buy-icon-svg {
+    color: $sour-cherry;
+    outline: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .product-day {
+    &__timer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &__timer-content {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .product-day {
+    &__left, &__right {
+      grid-column: span 12;
+    }
+    &__options {
+      margin-left: 5px;
+    }
+  }
+}

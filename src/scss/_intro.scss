@@ -1,0 +1,102 @@
+@import "_variables";
+@import "_mixins";
+
+.intro {
+  margin-top: 20px;
+  &__swiper {
+    background-color: $navBg;
+  }
+  &__swiper-slide {
+    padding-left: 125px;
+    padding-right: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__slide-left {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  &__slide-subtitle {
+    margin-bottom: 30px;
+    @include text(20px, 100%, 400, $off-black);
+    font-family: "Prata", sans-serif;
+  }
+  &__slide-title {
+    margin-top: 35px;
+    margin-bottom: 52px;
+    text-transform: uppercase;
+    @include text(50px, 100%, 400, $off-black);
+    font-family: "Prata", sans-serif;
+  }
+  &__slide-btn {
+    padding: 20px 56px;
+    width: 200px;
+    height: 54px;
+    text-transform: uppercase;
+    @include text(14px, 100%, 400, $white);
+    background-color: $off-black;
+  }
+  &__slide-right-img {
+    margin-bottom: 5px;
+  }
+  &__swiper &__btn-prev {
+    top: 49%;
+    left: 24px;
+  }
+  &__swiper &__btn-next {
+    top: 49%;
+    right: 24px;
+  }
+  &__btn-next,
+  &__btn-prev {
+    width: 54px;
+    height: 54px;
+    border: 1px solid $off-black;
+    border-radius: 50%;
+  }
+}
+
+.intro__swiper .intro__swiper-pagination {
+  bottom: 20px;
+}
+
+.intro__swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+  border: 1px solid $off-black;
+  opacity: 1;
+}
+
+.intro__swiper .swiper-pagination-bullet-active {
+  width: 8px;
+  height: 8px;
+  background-color: $off-black;
+}
+
+@media (max-width: 1024px) {
+  .intro {
+    &__swiper-slide {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    &__slide-title {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    &__btn-next,
+    &__btn-prev {
+      display: none;
+    }
+  }
+}
+
+
+@media (max-width: 550px) {
+  .intro {
+    &__slide-right {
+      display: none;
+    }
+  }
+}

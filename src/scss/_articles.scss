@@ -1,0 +1,103 @@
+@import "_variables";
+@import "_mixins";
+
+.article {
+  &__header {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  &__all {
+    position: relative;
+    padding-right: 38px;
+    text-transform: uppercase;
+    opacity: 1;
+    @include text(14px, 100%, 500, $off-black);
+    @include transition(opacity, 0.3s, ease-in-out);
+  }
+  &__all::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 26px;
+    height: 12px;
+    background-image: url("../img/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+  }
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(12, 3fr);
+    gap: 20px;
+  }
+  &__item {
+    grid-column: span 3;
+    @include transition(opacity, 0.3s, ease-in-out);
+  }
+  &__img {
+    margin-bottom: 15px;
+  }
+  &__date {
+    @include text(14px, 100%, 400, $silver-snippet);
+  }
+  &__descr {
+    margin-top: 12px;
+    @include text(16px, 100%, 500, $off-black);
+  }
+}
+
+//hover
+@media (min-width: 1024px) {
+  .article {
+    &__all:hover,
+    &__item:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.article {
+  &__all:active,
+  &__item:active {
+    opacity: 0.5;
+  }
+  &__all:focus,
+  &__item:focus {
+    opacity: 0.5;
+    outline: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .article {
+    &__item {
+      grid-column: span 4;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .article {
+    &__header {
+      align-items: center;
+    }
+    &__item {
+      grid-column: span 6;
+    }
+  }
+}
+
+
+@media (max-width: 500px) {
+  .article {
+    &__item {
+      grid-column: span 12;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

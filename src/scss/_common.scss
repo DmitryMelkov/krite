@@ -1,0 +1,452 @@
+@import "_variables";
+@import "_mixins";
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  list-style-type: none;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+label {
+  display: block;
+  cursor: pointer;
+}
+
+input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.title-reset {
+  margin: 0;
+}
+
+.descr-reset {
+  margin: 0;
+}
+
+.btn-reset {
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1330px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+.section {
+  padding-top: 118px;
+}
+
+.section__title {
+  letter-spacing: 1px;
+  @include text(40px, 100%, 400, $off-black);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}
+
+.slide {
+  &__next-svg,
+  &__prev-svg {
+    margin: 5px;
+    background-color: transparent;
+    border-radius: 50%;
+    transform: translateX(0);
+    @include svg-icon(16px, 27px, $off-black);
+    @include transition((transform, background-color), 0.3s, ease-in-out);
+  }
+}
+
+.like-sale {
+  padding: 4px 12px;
+  @include text(13px, 100%, 500, $white);
+  background-color: $tort;
+  border-radius: 15px;
+}
+
+.like-hit {
+  padding: 4px 12px;
+  @include text(13px, 100%, 500, $white);
+  background-color: $india-trade;
+  border-radius: 15px;
+}
+
+.like-new {
+  padding: 4px 12px;
+  @include text(13px, 100%, 500, $white);
+  background-color: $off-black;
+  border-radius: 15px;
+}
+
+.price {
+  @include text(18px, 100%, 600, $off-black);
+}
+
+.discount {
+  text-decoration-line: line-through;
+  @include text(18px, 100%, 600, $silver-snippet);
+}
+
+.percent {
+  padding: 4px 8px;
+  @include text(13px, 100%, 500, $white);
+  background-color: $sour-cherry;
+  border-radius: 15px;
+}
+
+.raiting {
+  &__top-raiting {
+    position: relative;
+    font-size: 17px;
+    display: inline-block;
+  }
+  &__top-raiting::before {
+    content: "★★★★★";
+    display: block;
+  }
+  &__top-raiting-items {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: hidden;
+  }
+  &__top-raiting-item {
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__top-raiting-label {
+    flex: 0 0 20%;
+    height: 100%;
+    cursor: pointer;
+    color: $tin;
+  }
+  &__top-raiting-label::before {
+    content: "★";
+    display: block;
+    transition: color 0.3s ease-in-out;
+  }
+  &__top-raiting-item:checked,
+  &__top-raiting-item:checked ~ &__top-raiting-label {
+    color: $india-trade;
+  }
+  &__top-raiting-label:hover,
+  &__top-raiting-label:hover ~ &__top-raiting-label,
+  &__top-raiting-label:checked ~ &__top-raiting-label:hover {
+    color: $india-trade;
+  }
+  &__raiting-btn {
+    position: absolute;
+    top: 1%;
+    right: -22px;
+  }
+}
+
+.options {
+  margin-top: 20px;
+  margin-bottom: 34px;
+  &__item {
+    margin-right: 25px;
+  }
+  &__input {
+    display: none;
+  }
+  &__input:checked + &__label::after {
+    transform: scale(1);
+  }
+  &__label {
+    display: inline-flex;
+    font-size: 16px;
+    line-height: 140%;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+  &__label::before {
+    content: "";
+    align-self: flex-start;
+    flex: 0 0 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin: 0 10px 0 0;
+  }
+
+  &__label::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid black;
+    transform: scale(0);
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.grey__label::before {
+  background-color: $unique-grey;
+}
+
+.yellow__label::before {
+  background-color: $india-trade;
+}
+
+.orange__label::before {
+  background-color: $sour-cherry;
+}
+
+.green__label::before {
+  background-color: $stem-green;
+}
+
+//dropdown
+.dropdown {
+  position: relative;
+  &__button {
+    position: relative;
+    padding-left: 24px;
+    padding-right: 27px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    @include text(14px, 100%, 400, $off-black);
+    cursor: pointer;
+  }
+  &__button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    transform: translateY(-50%);
+    background-image: url("../img/geo.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+  }
+
+  &__button::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-image: url("../img/Rectangle.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    @include transition(transform, 0.3s, ease-in-out);
+  }
+  &__button--active::after {
+    transform: rotate(180deg);
+  }
+
+  &__list {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 28px;
+    background-color: $white;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 197px;
+    z-index: 11;
+  }
+
+  &__list--visible {
+    display: block;
+  }
+
+  &__list-item {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 24px;
+    padding-right: 24px;
+    @include text(14px, 100%, 400, $off-black);
+    cursor: pointer;
+  }
+
+  &__list-item-active {
+    display: block;
+  }
+
+  &__list-item-active::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 22px;
+    z-index: 11;
+    width: 16px;
+    height: 16px;
+    transform: translateY(-50%);
+    background-image: url("../img/chose.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+  }
+
+  &__list-item:hover {
+    background-color: $dr-white;
+  }
+
+  &__input-hidden {
+    display: none;
+  }
+}
+
+//убрать крестик у инпута
+input[type="text"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="text"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+//убрать стрелки от номера у инпута
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+//hover
+@media (min-width: 1024px) {
+  .slide {
+    &__btn-next:hover &__next-svg {
+      transform: translateX(5px);
+    }
+    &__btn-prev:hover &__prev-svg {
+      transform: translateX(-5px);
+    }
+  }
+}
+
+//active, focus
+.slide {
+  &__btn-next:active &__next-svg {
+    transform: translateX(5px);
+  }
+  &__btn-prev:active &__prev-svg {
+    transform: translateX(-5px);
+  }
+  &__btn-next:focus &__next-svg {
+    transform: translateX(5px);
+  }
+  &__btn-prev:focus &__prev-svg {
+    transform: translateX(-5px);
+  }
+}
+
+// import swiper
+@import "../../node_modules/swiper/swiper.scss";
+@import "../../node_modules/swiper/modules/pagination/pagination.scss";
+@import "../../node_modules/swiper/modules/navigation/navigation.scss";
+@import "../../node_modules/swiper/modules/grid/grid.scss";
+@import "../../node_modules/swiper/modules/free-mode/free-mode.scss";
+@import "../../node_modules/swiper/modules/thumbs/thumbs.scss";
+
+//tooltip
+@import "../../node_modules/tippy.js/dist/tippy";
+@import "../../node_modules/tippy.js/themes/light";
+
+
+@media (max-width: 500px) {
+  .section__title {
+    font-size: 32px;
+  }
+}

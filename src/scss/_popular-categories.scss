@@ -1,0 +1,56 @@
+@import "_variables";
+@import "_mixins";
+
+.popular-categories {
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(12, 2fr);
+    gap: 20px;
+  }
+  &__item {
+    grid-column: span 2;
+    padding: 25px 36px;
+    height: 259px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $navBg;
+  }
+  &__img {
+    max-width: 141px;
+  }
+  &__title {
+    margin-bottom: 40px;
+  }
+  &__span {
+    @include text(16px, 100%, 400, $off-black);
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .popular-categories {
+    &__item {
+      grid-column: span 4;
+    }
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .popular-categories {
+    &__item {
+      grid-column: span 6;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .popular-categories {
+    &__item {
+      grid-column: span 12;
+    }
+  }
+}
